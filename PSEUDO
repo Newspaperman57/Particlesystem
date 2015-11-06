@@ -1,0 +1,7 @@
+Particle system:
+
+Emulates torus with particles
+For every check run through all particles (multithreaded at some point)
+For every other particle, calculate distance. This can be through "walls"
+put velocity of particle away from particle in a factor of the distance to it. the factor is ^2
+move all particles, their velocity and repeat 
