@@ -241,7 +241,18 @@ int main(int args, char* argc[]) {
             #ifndef DISABLE_SDL
             SDL_RenderPresent(Renderer);
             #endif
+
             string str = to_string(ticks);
+            if(ticks < 10)
+                str = "0000" + str;
+            else if(ticks < 100)
+                str = "000" + str;
+            else if(ticks < 1000)
+                str = "000" + str;
+            else if(ticks < 10000)
+                str = "0" + str;
+            str = "output/" + str + ".pnm";
+
             Imagemanager_WriteToFile( image, (char*)str.c_str(), SCREENSIZEX, SCREENSIZEY );
             #ifndef DISABLE_SDL
             SDL_SetRenderDrawColor(Renderer, BLACK.r, BLACK.g, BLACK.b, 0);
